@@ -1,0 +1,16 @@
+{
+	"name": "firstapp",
+	"version": "1.0.0",
+	"description": "nodejs",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/zahanwasif/firstApp/issues"
+	},
+	"homepage": "https://github.com/zahanwasif/firstApp#readme"
+}
