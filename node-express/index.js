@@ -10,28 +10,9 @@ const app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-app.all('/dishes', (req, res, next) => {
-	res.statusCode = 200;
-	res.setHeader('Content-Type', 'text/plain');
-	next();
-});
+var dishes = require('./routes/dishRouter');
 
-app.get('/dishes', (req, res, next) => {
-	res.end('Will send all the dishes to you');
-});
-
-app.post('/dishes', (req, res, next) => {
-	res.end('Will add the dish: ' + req.body.name + ' with details: ' + req.body.discription);
-});
-
-app.put('/dishes', (req, res, next) => {
-	res.statusCode = 403;
-	res.end('PUT operation not supported on /dishes');
-});
-
-app.delete('/dishes', (req, res, next) => {
-	res.end('Deleting all the dishes');
-});
+app.use('/dishes', dishes);
 
 app.get('/dishes/:dishId', (req, res, next) => {
 	res.end('Will send details of the dish: ' + req.params.dishId + ' to you!');
