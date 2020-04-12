@@ -1,7 +1,5 @@
 const express = require('express');
-
 const bodyParser = require('body-parser');
-
 const dishRouter = express.Router();
 
 dishRouter.use(bodyParser.json());
@@ -11,7 +9,6 @@ dishRouter
 	.route('/')
 
 	.all((req, res, next) => {
-		if (req.params.id == null) next('route');
 		res.statusCode = 200;
 		res.setHeader('Content-Type', 'text/plain');
 		next();
@@ -49,7 +46,7 @@ dishRouter
 
 	.put((req, res, next) => {
 		res.write('Updating the dish: ' + req.params.dishId + '\n');
-		res.end('Will update the dish: ' + req.params.dishId + ' with details: ' + req.body.discription);
+		res.end('Will update the dish: ' + req.body.name + ' with details: ' + req.body.discription);
 	})
 
 	.delete((req, res, next) => {

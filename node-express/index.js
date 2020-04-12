@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 const dishes = require('./routes/dishRouter');
+const promotions = require('./routes/promoRouter');
+const leaders = require('./routes/leaderRouter');
 
 const hostname = 'localhost';
 const port = 3000;
@@ -13,6 +15,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 app.use('/dishes', dishes);
+app.use('/promotions', promotions);
+app.use('/leaders', leaders);
 
 app.use(express.static(__dirname + '/public'));
 
